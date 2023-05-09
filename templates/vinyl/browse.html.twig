@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
 <div class="container">
     <h1>Browse {{ genre ? genre : 'All Genres' }}</h1>
-
     <h2 class="mt-5 mb-4">Filter by Genre</h2>
     <ul class="genre-list ps-0 mt-2 mb-3">
         <li class="d-inline">
@@ -18,11 +16,10 @@
         </li>
         <li class="d-inline">
             <a class="btn btn-primary btn-sm" href="{{ path('app_browse', {
-                slug: 'heavy-metal'
-            }) }}">Heavy Metal</a>
+                slug: 'all-accordion'
+            }) }}">All Accordion</a>
         </li>
     </ul>
-
     <div>
         <h2 class="mt-5">Mixes</h2>
         <div class="row">
@@ -35,7 +32,7 @@
                     |
                     <span>{{ mix.genre }}</span>
                     |
-                    <span>{{ mix.createdAt|date('Y-m-d') }}</span>
+                    <span>{{ mix.createdAt|ago }}</span>
                 </div>
             </div>
             {% endfor %}
